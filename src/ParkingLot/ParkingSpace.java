@@ -1,29 +1,32 @@
 package ParkingLot;
 
-public abstract class ParkingSpace implements Availability {
+public abstract class ParkingSpace {
+	
+	private int spaceNum;
+	private double hourlyRate;
+	private boolean spaceAvailable;
 
-    private boolean spaceAvailable;
-    private String ticket;
-    private double hourlyRate;
+	public int getSpaceNum() {
+		return spaceNum;
+	}
 
-    @Override
-    public boolean isAvailable() {
+	public void setSpaceNum(int spaceNum) {
+		this.spaceNum = spaceNum;
+	}
+
+	public double getHourlyRate() {
+		return hourlyRate;
+	}
+
+	public void setHourlyRate(double hourlyRate) {
+		this.hourlyRate = hourlyRate;
+	}
+
+    public boolean getSpaceAvailable() {
         return spaceAvailable;
     }
 
-    public void setHourlyRate(double rate) {
-        hourlyRate = rate;
+    public void setSpaceAvailable(boolean spaceAvailable) {
+        this.spaceAvailable = spaceAvailable;
     }
-
-    public boolean setTicket(String ticket) {
-        if (!spaceAvailable)
-            return false;
-
-        this.ticket = ticket;
-        spaceAvailable = false;
-        return true;
-    }
-
-
-
 }

@@ -1,32 +1,32 @@
 package Vehicle;
 
-public abstract class Vehicle implements Drivable{
+public abstract class Vehicle {
 
-    private String licensePlateID;
-    private String color;
-    private String size;
+	private String licensePlateNum;
+	private String color;
+	private int vehicleSize;
 
-    public String getLicensePlateID() {
-        return licensePlateID;
-    }
+	public String getLicensePlateNum() {
+		return licensePlateNum;
+	}
 
-    public void setLicensePlateID(String licensePlateID) {
-        this.licensePlateID = licensePlateID;
-    }
+	public void setLicensePlateNum(String licensePlateNum) {
+		this.licensePlateNum = licensePlateNum;
+	}
 
-    public String getColor() {
-        return color;
-    }
+	public String getColor() {
+		return color;
+	}
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+	public void setColor(String color) {
+		this.color = color;
+	}
 
-    public String getSize() {
-        return size;
-    }
+	public int getVehicleSize() {
+		return vehicleSize;
+	}
 
-    public void setSize(String size) {
-        this.size = size;
-    }
+	public void setVehicleSize(int vehicleSize) {
+		this.vehicleSize = vehicleSize;
+	}
 }

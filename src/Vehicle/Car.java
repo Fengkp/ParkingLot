@@ -1,12 +1,12 @@
 package Vehicle;
 
-public class Car extends Vehicle {
+public class Car extends Vehicle{
 
-    public Car() {}
+	private final int SIZE = 2;
 
-    public Car(String iD, String color, String size) {
-        super.setLicensePlateID(iD);
-        super.setColor(color);
-        super.setSize(size);
-    }
+	public Car(String iD, String color) {
+		super.setLicensePlateNum(iD);
+		super.setColor(color);
+		super.setVehicleSize(SIZE);
+	}
 }

@@ -2,11 +2,11 @@ package Vehicle;
 
 public class Bus extends Vehicle{
 
-    public Bus() {}
+	private final int SIZE = 4;
 
-    public Bus(String iD, String color, String size) {
-        super.setLicensePlateID(iD);
-        super.setColor(color);
-        super.setSize(size);
-    }
+	public Bus(String iD, String color) {
+		super.setLicensePlateNum(iD);
+		super.setColor(color);
+		super.setVehicleSize(SIZE);
+	}
 }

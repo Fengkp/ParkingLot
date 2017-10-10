@@ -1,12 +1,12 @@
 package Vehicle;
 
-public class Motorcycle extends Vehicle {
+public class Motorcycle extends Vehicle{
 
-    public Motorcycle() {}
+	private final int SIZE = 1;
 
-    public Motorcycle(String iD, String color, String size) {
-        super.setLicensePlateID(iD);
-        super.setColor(color);
-        super.setSize(size);
-    }
+	public Motorcycle(String iD, String color) {
+		super.setLicensePlateNum(iD);
+		super.setColor(color);
+		super.setVehicleSize(SIZE);
+	}
 }
