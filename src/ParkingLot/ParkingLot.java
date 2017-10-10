@@ -3,20 +3,19 @@ package ParkingLot;
 import Vehicle.Car;
 import Vehicle.Vehicle;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.*;
 
 public class ParkingLot {
 
-	private int NUMBER_OF_SMALL_SPACES = 10;
-	private int NUMBER_OF_MEDIUM_SPACES = 10;
-	private int NUMBER_OF_LARGE_SPACES = 10;
+	private int NUMBER_OF_SMALL_SPACES = 10000;
+	private int NUMBER_OF_MEDIUM_SPACES = 10000;
+	private int NUMBER_OF_LARGE_SPACES = 10000;
 	private List<ParkingSpace> availableSpaces;
-	private Hashtable<Vehicle, ParkingSpace> usedSpaces;
+	private Map<String, ParkingSpace> usedSpaces;
 
 	public ParkingLot() {
 		availableSpaces = new ArrayList<>(NUMBER_OF_SMALL_SPACES + NUMBER_OF_MEDIUM_SPACES + NUMBER_OF_LARGE_SPACES);
+		usedSpaces = new HashMap<>();
 		createLot();
 	}
 
@@ -37,25 +36,22 @@ public class ParkingLot {
 		}
 	}
 
-	public void getAvailableSpaces() {
-		System.out.print("Available Parking Spaces: ");
-		for (ParkingSpace space : availableSpaces) {
-			if (space.getSpaceAvailable())
-				System.out.print(space.getSpaceNum() + ", ");
-		}
-	}
+	public void occupySpace(Vehicle vehicle, int spaceNum) {
+        ParkingSpace spaceToOccupy = availableSpaces.get(spaceNum - 1);
 
-	
-	public void display() {
-		System.out.println("Parking Lot Size: " + availableSpaces.size() + "total parking spaces");
-		getAvailableSpaces();
-		System.out.println();
+	    if (vehicle.getVehicleSize() > spaceToOccupy.getSpaceSize()
+                || !spaceToOccupy.getSpaceAvailable()) {
+	        System.out.println("Invalid Space");
+            return;
+        }
 
-	}
+        spaceToOccupy.setSpaceAvailable(false);
+	    usedSpaces.put(vehicle.getLicensePlateNum(), spaceToOccupy);
+    }
 
-	public static void main(String[] args) {
-	    ParkingLot lot = new ParkingLot();
-	    Vehicle car = new Car("HDX1234", "red");
+    public void getUsedSpaces(String key) {
+        ParkingSpace usedSpace = usedSpaces.get(key);
+        usedSpace.display();
 
     }
 }

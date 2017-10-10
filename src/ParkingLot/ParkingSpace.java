@@ -5,6 +5,7 @@ public abstract class ParkingSpace {
 	private int spaceNum;
 	private double hourlyRate;
 	private boolean spaceAvailable;
+	private int spaceSize;
 
 	public int getSpaceNum() {
 		return spaceNum;
@@ -28,5 +29,23 @@ public abstract class ParkingSpace {
 
     public void setSpaceAvailable(boolean spaceAvailable) {
         this.spaceAvailable = spaceAvailable;
+    }
+
+    public int getSpaceSize() {
+        return spaceSize;
+    }
+
+    public void setSpaceSize(int spaceSize) {
+        this.spaceSize = spaceSize;
+    }
+
+    public void display() {
+	    System.out.println("Ticket Number: " + "test"
+                + "\nParking Space Number: " + spaceNum
+                + "\nParking Space Type: " + spaceType());
+    }
+
+    public String spaceType() {
+	    return null;
     }
 }

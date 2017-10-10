@@ -1,12 +1,17 @@
 package Vehicle;
 
-public class Bus extends Vehicle{
+public class Bus extends Vehicle {
 
 	private final int SIZE = 4;
 
 	public Bus(String iD, String color) {
-		super.setLicensePlateNum(iD);
-		super.setColor(color);
+		super.setLicensePlateNum(iD.toUpperCase());
+		super.setColor(color.toUpperCase());
 		super.setVehicleSize(SIZE);
+	}
+
+	@Override
+	public String vehicleType() {
+		return "BUS";
 	}
 }
