@@ -1,11 +1,12 @@
 package Vehicle;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements Wheels {
 
 	private String licensePlateNum;
 	private String color;
 	private int vehicleSize;
 	protected boolean isParked;
+	protected boolean isDrivable;
 
 	public String getLicensePlateNum() {
 		return licensePlateNum;
