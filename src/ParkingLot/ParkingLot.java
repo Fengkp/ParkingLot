@@ -37,8 +37,21 @@ public class ParkingLot {
 		}
 	}
 
+	public ParkingSpace getSpace(int spaceNum) {
+	    if (!isValidSpaceNum(spaceNum))
+	        return null;
+        ParkingSpace space = availableSpaces.get(spaceNum - 1);
+        return space;
+    }
+
+    public boolean hasVehicle(String key) {
+	    if (usedSpaces.get(key) == null)
+	        return false;
+        return true;
+    }
+
 	public void occupySpace(Vehicle vehicle, int spaceNum) {
-        ParkingSpace spaceToOccupy = availableSpaces.get(spaceNum - 1);
+        ParkingSpace spaceToOccupy = getSpace(spaceNum);
 
 	    if (vehicle.getVehicleSize() > spaceToOccupy.getSpaceSize()
                 || !spaceToOccupy.getSpaceAvailable()) {
@@ -50,6 +63,12 @@ public class ParkingLot {
 	    usedSpaces.put(vehicle.getLicensePlateNum(), spaceToOccupy);
     }
 
+    public void makeSpaceAvailable(String key) {
+	    if (usedSpaces.get(key) == null)
+	        return;
+	    usedSpaces.remove(key);
+    }
+
 	public int getTotalSpaces() {
 	    return TOTAL_NUMBER_OF_SPACES;
     }
@@ -57,6 +76,11 @@ public class ParkingLot {
 	public void getUsedSpaces(String key) {
         ParkingSpace usedSpace = usedSpaces.get(key);
         usedSpace.display();
+    }
 
+    public boolean isValidSpaceNum(int num) {
+        if (num > TOTAL_NUMBER_OF_SPACES || num < 1)
+            return false;
+        return true;
     }
 }

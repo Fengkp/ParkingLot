@@ -12,8 +12,5 @@ public class SmallParkingSpace extends ParkingSpace {
         super.setSpaceSize(SIZE);
     }
 
-    @Override
-    public String spaceType() {
-        return "SMALL";
-    }
+
 }
