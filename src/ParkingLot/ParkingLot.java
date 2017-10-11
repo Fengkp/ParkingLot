@@ -7,9 +7,10 @@ import java.util.*;
 
 public class ParkingLot {
 
-	private int NUMBER_OF_SMALL_SPACES = 10000;
-	private int NUMBER_OF_MEDIUM_SPACES = 10000;
-	private int NUMBER_OF_LARGE_SPACES = 10000;
+	private final int NUMBER_OF_SMALL_SPACES = 10;
+	private final int NUMBER_OF_MEDIUM_SPACES = 30;
+	private final int NUMBER_OF_LARGE_SPACES = 5;
+	private final int TOTAL_NUMBER_OF_SPACES = NUMBER_OF_SMALL_SPACES + NUMBER_OF_MEDIUM_SPACES + NUMBER_OF_LARGE_SPACES;
 	private List<ParkingSpace> availableSpaces;
 	private Map<String, ParkingSpace> usedSpaces;
 
@@ -49,7 +50,11 @@ public class ParkingLot {
 	    usedSpaces.put(vehicle.getLicensePlateNum(), spaceToOccupy);
     }
 
-    public void getUsedSpaces(String key) {
+	public int getTotalSpaces() {
+	    return TOTAL_NUMBER_OF_SPACES;
+    }
+
+	public void getUsedSpaces(String key) {
         ParkingSpace usedSpace = usedSpaces.get(key);
         usedSpace.display();
 
