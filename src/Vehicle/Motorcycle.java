@@ -1,6 +1,6 @@
 package Vehicle;
 
-public class Motorcycle extends Vehicle {
+public class Motorcycle extends Vehicle implements Drivable {
 
 	private final int SIZE = 1;
 
@@ -13,5 +13,10 @@ public class Motorcycle extends Vehicle {
     @Override
     public String vehicleType() {
         return "MOTORCYCLE";
+    }
+
+    @Override
+    public void isDrivable() {
+        
     }
 }
